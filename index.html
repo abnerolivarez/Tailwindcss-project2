@@ -1,0 +1,1292 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Abner Olivarez | Full Stack Web Developer</title>
+    <meta name="description" content="Abner Olivarez - Web Developer providing modern web solutions for businesses using Laravel, PHP, JavaScript and modern frontend technologies.">
+
+    <!-- Your locally compiled Tailwind CSS -->
+    <link rel="stylesheet" href="/src/style.css">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .hero-bg {
+            background-image:
+                linear-gradient(90deg, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.25)),
+                url('src/hero.png');
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .section-label {
+            letter-spacing: 3px;
+        }
+
+        .project-card img {
+            transition: transform .5s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .service-card,
+        .tech-card {
+            transition: all .3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-7px);
+            border-color: #f59e0b;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+            background: #fffbeb;
+        }
+
+        .menu-open {
+            display: flex !important;
+        }
+
+        ::selection {
+            background: #f59e0b;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-slate-800 antialiased">
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="fixed top-0 left-0 z-50 w-full border-b border-white/10 bg-white/95 shadow-sm backdrop-blur-md">
+
+        <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+
+            <!-- Logo -->
+            <a href="#home" class="text-2xl font-extrabold tracking-tight text-slate-900">
+                AO<span class="text-amber-500">.</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden items-center gap-8 text-sm font-semibold text-slate-600 md:flex">
+                <a href="#home" class="transition hover:text-amber-500">Home</a>
+                <a href="#about" class="transition hover:text-amber-500">About</a>
+                <a href="#services" class="transition hover:text-amber-500">Services</a>
+                <a href="#technology" class="transition hover:text-amber-500">Technologies</a>
+                <a href="#projects" class="transition hover:text-amber-500">Projects</a>
+                <a href="#contact" class="transition hover:text-amber-500">Contact</a>
+            </div>
+
+            
+        <!-- Dark / Light Mode Toggle -->
+        <button
+            id="themeToggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Switch to dark mode"
+            title="Toggle Dark Mode"
+        >
+            <i data-lucide="moon" class="h-5 w-5"></i>
+        </button>
+
+
+            <!-- Contact Button -->
+            <a href="#contact" class="hidden items-center gap-2 rounded-full bg-amber-500 px-6 py-3 text-sm font-bold text-white transition hover:bg-amber-600 hover:shadow-lg hover:shadow-amber-500/20 md:flex">
+                Let's Talk
+                <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button id="menuBtn" class="rounded-lg p-2 text-slate-800 transition hover:bg-slate-100 md:hidden" aria-label="Toggle navigation" aria-expanded="false">
+                <i data-lucide="menu" class="h-6 w-6"></i>
+            </button>
+
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="absolute left-0 top-full hidden w-full flex-col gap-5 border-t border-slate-100 bg-white px-6 py-7 text-sm font-semibold text-slate-700 shadow-lg md:hidden">
+
+            <a href="#home" class="mobile-link hover:text-amber-500">Home</a>
+            <a href="#about" class="mobile-link hover:text-amber-500">About Me</a>
+            <a href="#services" class="mobile-link hover:text-amber-500">My Services</a>
+            <a href="#technology" class="mobile-link hover:text-amber-500">Technology Stack</a>
+            <a href="#projects" class="mobile-link hover:text-amber-500">Feature Projects</a>
+            <a href="#testimonials" class="mobile-link hover:text-amber-500">Testimonials</a>
+            <a href="#contact" class="mobile-link hover:text-amber-500">Contact Me</a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <section id="home" class="hero-bg relative flex min-h-screen items-center overflow-hidden pt-24">
+
+        <div class="mx-auto grid w-full max-w-7xl items-center gap-12 px-5 py-24 lg:grid-cols-2 lg:px-8">
+
+            <!-- Hero Content -->
+            <div class="max-w-3xl">
+
+                <div class="mb-7 inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur-sm">
+                    <span class="h-3 w-3 animate-pulse rounded-full bg-green-400"></span>
+                    Available for freelance projects
+                </div>
+
+                <p class="mb-4 text-sm font-bold uppercase tracking-[5px] text-amber-400">
+                    Hello, I'm
+                </p>
+
+                <h1 class="mb-6 text-5xl font-extrabold leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl">
+                    Abner <span class="text-amber-400">Olivarez</span>
+                </h1>
+
+                <h2 class="mb-6 text-2xl font-semibold leading-relaxed text-white sm:text-3xl">
+                    Providing Solution to <span class="text-amber-400">Business Problems.</span>
+                </h2>
+
+                <p class="mb-10 max-w-xl text-base leading-8 text-slate-300 sm:text-lg">
+                    I build modern, responsive and functional websites that help businesses establish their online presence, improve operations and reach more customers.
+                </p>
+
+                <div class="flex flex-wrap gap-4">
+
+                    <a href="#projects" class="inline-flex items-center gap-3 rounded-full bg-amber-500 px-8 py-4 font-bold text-white transition hover:-translate-y-1 hover:bg-amber-600 hover:shadow-xl hover:shadow-amber-500/20">
+                        Explore My Work
+                        <i data-lucide="arrow-up-right" class="h-5 w-5"></i>
+                    </a>
+
+                    <a href="#contact" class="inline-flex items-center gap-3 rounded-full border border-white/40 px-8 py-4 font-bold text-white transition hover:border-amber-400 hover:bg-white/10">
+                        Contact Me
+                        <i data-lucide="mail" class="h-5 w-5"></i>
+                    </a>
+
+                </div>
+
+                <!-- Social Links -->
+                <div class="mt-14 flex items-center gap-5 text-slate-300">
+
+                    <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="transition hover:text-amber-400">
+                        <i  class="fa-brands fa-github text-xl h-5 w-5"></i>
+                    </a>
+
+                    <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="transition hover:text-amber-400">
+                        <i class="fa-brands fa-linkedin text-xl h-5 w-5"></i>
+                    </a>
+
+                    <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="transition hover:text-amber-400">
+                        <i class="fa-brands fa-facebook text-xl h-5 w-5"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Hero Decorative Card -->
+            <div class="relative hidden lg:flex lg:justify-end">
+
+                <div class="relative w-full max-w-md rounded-3xl border border-white/20 bg-white/10 p-7 shadow-2xl backdrop-blur-xl">
+
+                    <div class="mb-8 flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-slate-300">Developer Profile</p>
+                            <h3 class="mt-1 text-xl font-bold text-white">Full Stack Developer</h3>
+                        </div>
+
+                        <div class="rounded-xl bg-amber-500 p-3 text-white">
+                            <i data-lucide="code-2" class="h-7 w-7"></i>
+                        </div>
+                    </div>
+
+                    <div class="space-y-5">
+
+                        <div class="flex items-center gap-4 rounded-xl bg-white/10 p-4">
+                            <div class="rounded-lg bg-orange-500/20 p-3 text-orange-400">
+                                <i data-lucide="monitor" class="h-6 w-6 animate-pulse"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Frontend Development</h4>
+                                <p class="text-sm text-slate-300">Modern & Responsive UI</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 rounded-xl bg-white/10 p-4">
+                            <div class="rounded-lg bg-red-500/20 p-3 text-red-400">
+                                <i data-lucide="database" class="h-6 w-6 animate-bounce"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Backend Development</h4>
+                                <p class="text-sm text-slate-300">Laravel, PHP & Database</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 rounded-xl bg-white/10 p-4">
+                            <div class="rounded-lg bg-green-500/20 p-3 text-green-400">
+                                <i data-lucide="layout-dashboard" class="h-6 w-6 animate-spin"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Web Applications</h4>
+                                <p class="text-sm text-slate-300">Business-focused Solutions</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="mt-8 border-t border-white/20 pt-6">
+                        <p class="text-sm leading-7 text-slate-300">
+                            Turning ideas into functional digital experiences.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="absolute -right-5 -top-5 -z-10 h-32 w-32 rounded-full bg-amber-500/30 blur-3xl"></div>
+                <div class="absolute -bottom-8 -left-8 -z-10 h-40 w-40 rounded-full bg-blue-500/20 blur-3xl"></div>
+
+            </div>
+
+        </div>
+
+        <!-- Scroll Indicator -->
+        <a href="#about" class="absolute bottom-7 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/70 transition hover:text-amber-400 md:flex">
+            <span class="text-xs uppercase tracking-widest">Scroll Down</span>
+            <i data-lucide="chevron-down" class="h-5 w-5 animate-bounce"></i>
+        </a>
+
+    </section>
+
+
+    <!-- ================= ABOUT ME ================= -->
+
+    <section id="about" class="bg-white px-5 py-24 lg:px-8 lg:py-32">
+
+        <div class="mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-2">
+
+            <!-- About Image -->
+            <div class="relative mx-auto w-full max-w-lg">
+
+                <div class="absolute -left-5 -top-5 h-32 w-32 rounded-3xl bg-amber-100"></div>
+
+                <img
+                    src="src/about.png"
+                    alt="Web development team working together"
+                    class="relative z-10 h-112.5 w-full rounded-3xl object-cover shadow-xl"
+                >
+
+                <div class="absolute -bottom-7 -right-5 z-20 rounded-2xl bg-amber-500 p-6 text-white shadow-xl">
+                    <p class="text-4xl font-extrabold">2+</p>
+                    <p class="mt-1 text-sm font-medium">Years of Experience</p>
+                </div>
+
+            </div>
+
+            <!-- About Content -->
+            <div>
+
+                <p class="section-label mb-4 text-xs font-bold uppercase text-amber-500">
+                    Get To Know Me
+                </p>
+
+                <h2 class="mb-7 text-4xl font-extrabold leading-tight text-slate-900 sm:text-5xl">
+                    About <span class="text-amber-500">Me</span>
+                </h2>
+
+                <p class="mb-5 text-lg font-semibold leading-8 text-slate-700">
+                    Passionate about building digital solutions that make a difference.
+                </p>
+
+                <p class="mb-5 leading-8 text-slate-500">
+                    I'm Abner Olivarez, an aspiring web developer passionate about creating websites and web applications that solve real-world business problems.
+                </p>
+
+                <p class="mb-8 leading-8 text-slate-500">
+                    I work with frontend and backend technologies, including HTML, CSS, JavaScript, PHP and Laravel. My focus is creating user-friendly interfaces, reliable systems and responsive websites that help businesses grow.
+                </p>
+
+                <div class="mb-9 grid grid-cols-2 gap-5">
+
+                    <div class="rounded-xl border border-slate-100 bg-slate-50 p-5">
+                        <i data-lucide="code" class="mb-3 h-7 w-7 text-amber-500"></i>
+                        <h3 class="font-bold text-slate-900">Clean Code</h3>
+                        <p class="mt-1 text-sm text-slate-500">Organized and maintainable development</p>
+                    </div>
+
+                    <div class="rounded-xl border border-slate-100 bg-slate-50 p-5">
+                        <i data-lucide="monitor-smartphone" class="mb-3 h-7 w-7 text-amber-500"></i>
+                        <h3 class="font-bold text-slate-900">Responsive Design</h3>
+                        <p class="mt-1 text-sm text-slate-500">Works across different devices</p>
+                    </div>
+
+                </div>
+
+                <a href="#contact" class="inline-flex items-center gap-3 rounded-full bg-slate-900 px-8 py-4 font-bold text-white transition hover:bg-amber-500">
+                    Let's Work Together
+                    <i data-lucide="arrow-up-right" class="h-5 w-5"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SERVICES ================= -->
+
+    <section id="services" class="bg-slate-50 px-5 py-24 lg:px-8 lg:py-32">
+
+        <div class="mx-auto max-w-7xl">
+
+            <div class="mx-auto mb-16 max-w-2xl text-center">
+
+                <p class="section-label mb-4 text-xs font-bold uppercase text-amber-500">
+                    What I Can Do
+                </p>
+
+                <h2 class="mb-5 text-4xl font-extrabold text-slate-900 sm:text-5xl">
+                    My <span class="text-amber-500">Services</span>
+                </h2>
+
+                <p class="leading-8 text-slate-500">
+                    Providing practical web development services to help businesses establish, improve and grow their digital presence.
+                </p>
+
+            </div>
+
+            <div class="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+
+                <!-- Service 1 -->
+                <div class="service-card rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+
+                    <div class="mb-7 inline-flex rounded-2xl bg-amber-100 p-4 text-amber-600">
+                        <i data-lucide="monitor" class="h-8 w-8"></i>
+                    </div>
+
+                    <h3 class="mb-4 text-xl font-bold text-slate-900">Website Development</h3>
+
+                    <p class="mb-7 leading-7 text-slate-500">
+                        Modern, professional and responsive websites designed to showcase your business and attract potential customers.
+                    </p>
+
+                    <a href="#contact" class="inline-flex items-center gap-2 text-sm font-bold text-amber-600 hover:text-amber-700">
+                        Discuss Your Project
+                        <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                    </a>
+
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+
+                    <div class="mb-7 inline-flex rounded-2xl bg-blue-100 p-4 text-blue-600">
+                        <i data-lucide="database" class="h-8 w-8"></i>
+                    </div>
+
+                    <h3 class="mb-4 text-xl font-bold text-slate-900">Backend Development</h3>
+
+                    <p class="mb-7 leading-7 text-slate-500">
+                        Functional backend systems, database integration, user authentication and business logic using PHP and Laravel.
+                    </p>
+
+                    <a href="#contact" class="inline-flex items-center gap-2 text-sm font-bold text-amber-600 hover:text-amber-700">
+                        Discuss Your Project
+                        <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                    </a>
+
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+
+                    <div class="mb-7 inline-flex rounded-2xl bg-green-100 p-4 text-green-600">
+                        <i data-lucide="shopping-cart" class="h-8 w-8"></i>
+                    </div>
+
+                    <h3 class="mb-4 text-xl font-bold text-slate-900">E-Commerce Solutions</h3>
+
+                    <p class="mb-7 leading-7 text-slate-500">
+                        Online stores with product listings, shopping carts, order management and user-friendly shopping experiences.
+                    </p>
+
+                    <a href="#contact" class="inline-flex items-center gap-2 text-sm font-bold text-amber-600 hover:text-amber-700">
+                        Discuss Your Project
+                        <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                    </a>
+
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+
+                    <div class="mb-7 inline-flex rounded-2xl bg-purple-100 p-4 text-purple-600">
+                        <i data-lucide="layout-dashboard" class="h-8 w-8"></i>
+                    </div>
+
+                    <h3 class="mb-4 text-xl font-bold text-slate-900">Web Applications</h3>
+
+                    <p class="mb-7 leading-7 text-slate-500">
+                        Custom web applications that help businesses manage records, automate processes and improve productivity.
+                    </p>
+
+                    <a href="#contact" class="inline-flex items-center gap-2 text-sm font-bold text-amber-600 hover:text-amber-700">
+                        Discuss Your Project
+                        <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                    </a>
+
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+
+                    <div class="mb-7 inline-flex rounded-2xl bg-pink-100 p-4 text-pink-600">
+                        <i data-lucide="palette" class="h-8 w-8"></i>
+                    </div>
+
+                    <h3 class="mb-4 text-xl font-bold text-slate-900">UI Implementation</h3>
+
+                    <p class="mb-7 leading-7 text-slate-500">
+                        Converting design concepts into clean, responsive and interactive website interfaces using modern frontend tools.
+                    </p>
+
+                    <a href="#contact" class="inline-flex items-center gap-2 text-sm font-bold text-amber-600 hover:text-amber-700">
+                        Discuss Your Project
+                        <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                    </a>
+
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+
+                    <div class="mb-7 inline-flex rounded-2xl bg-orange-100 p-4 text-orange-600">
+                        <i data-lucide="wrench" class="h-8 w-8"></i>
+                    </div>
+
+                    <h3 class="mb-4 text-xl font-bold text-slate-900">Website Maintenance</h3>
+
+                    <p class="mb-7 leading-7 text-slate-500">
+                        Website improvements, bug fixes, content updates and ongoing technical support to keep your website running smoothly.
+                    </p>
+
+                    <a href="#contact" class="inline-flex items-center gap-2 text-sm font-bold text-amber-600 hover:text-amber-700">
+                        Discuss Your Project
+                        <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= TECHNOLOGY STACK ================= -->
+
+    <section id="technology" class="bg-white px-5 py-24 lg:px-8 lg:py-32">
+
+        <div class="mx-auto max-w-7xl">
+
+            <div class="mx-auto mb-16 max-w-2xl text-center">
+
+                <p class="section-label mb-4 text-xs font-bold uppercase text-amber-500">
+                    My Development Tools
+                </p>
+
+                <h2 class="mb-5 text-4xl font-extrabold text-slate-900 sm:text-5xl">
+                    Technology <span class="text-amber-500">Stack</span>
+                </h2>
+
+                <p class="leading-8 text-slate-500">
+                    Technologies and tools I use to develop modern websites and functional web applications.
+                </p>
+
+            </div>
+
+            <!-- Frontend -->
+            <div class="mb-12">
+
+                <h3 class="mb-7 flex items-center gap-3 text-xl font-bold text-slate-900">
+                    <span class="h-8 w-1.5 rounded-full bg-amber-500"></span>
+                    Frontend Technologies
+                </h3>
+
+                <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+
+                    <div class="tech-card rounded-2xl border border-slate-200 p-6 text-center">
+                        <i class="fa-brands fa-html5 mx-auto mb-4 h-9 w-9 text-4xl text-orange-500"></i>
+                        <h4 class="font-bold text-slate-800">HTML5</h4>
+                        <p class="mt-1 text-xs text-slate-400">Markup</p>
+                    </div>
+
+                    <div class="tech-card rounded-2xl border border-slate-200 p-6 text-center">
+                        <i class="fa-brands fa-css3-alt mx-auto mb-4 h-9 w-9 text-4xl text-blue-500"></i>
+                        <h4 class="font-bold text-slate-800">CSS3</h4>
+                        <p class="mt-1 text-xs text-slate-400">Styling</p>
+                    </div>
+
+                    <div class="tech-card rounded-2xl border border-slate-200 p-6 text-center">
+                        <i class="fa-brands fa-js mx-auto mb-4 h-9 w-9 text-4xl text-yellow-500"></i>
+                        <h4 class="font-bold text-slate-800">JavaScript</h4>
+                        <p class="mt-1 text-xs text-slate-400">Programming</p>
+                    </div>
+
+                    <div class="tech-card rounded-2xl border border-slate-200 p-6 text-center">
+                        <i class="fa-solid fa-wind mx-auto mb-4 h-9 w-9 text-4xl text-cyan-500"></i>
+                        <h4 class="font-bold text-slate-800">Tailwind CSS</h4>
+                        <p class="mt-1 text-xs text-slate-400">CSS Framework</p>
+                    </div>
+
+                    <div class="tech-card rounded-2xl border border-slate-200 p-6 text-center">
+                        <i data-lucide="layers" class="mx-auto mb-4 h-9 w-9 text-purple-500"></i>
+                        <h4 class="font-bold text-slate-800">Bootstrap</h4>
+                        <p class="mt-1 text-xs text-slate-400">CSS Framework</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Backend -->
+            <div>
+
+                <h3 class="mb-7 flex items-center gap-3 text-xl font-bold text-slate-900">
+                    <span class="h-8 w-1.5 rounded-full bg-amber-500"></span>
+                    Backend & Development Tools
+                </h3>
+
+                <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+
+                    <div class="tech-card rounded-2xl border border-slate-200 p-6 text-center">
+                        <i class="fa-brands fa-php mx-auto mb-4 h-9 w-9 text-4xl text-violet-500"></i>
+                        <h4 class="font-bold text-slate-800">PHP</h4>
+                        <p class="mt-1 text-xs text-slate-400">Backend</p>
+                    </div>
+
+                    <div class="tech-card rounded-2xl border border-slate-200 p-6 text-center">
+                        <i class="fa-brands fa-laravel mx-auto mb-4 h-9 w-9 text-4xl text-red-600"></i>
+                        <h4 class="font-bold text-slate-800">Laravel</h4>
+                        <p class="mt-1 text-xs text-slate-400">PHP Framework</p>
+                    </div>
+
+                    <div class="tech-card rounded-2xl border border-slate-200 p-6 text-center">
+                        <i data-lucide="database" class="mx-auto mb-4 h-9 w-9 text-blue-600"></i>
+                        <h4 class="font-bold text-slate-800">MySQL</h4>
+                        <p class="mt-1 text-xs text-slate-400">Database</p>
+                    </div>
+
+                    <div class="tech-card rounded-2xl border border-slate-200 p-6 text-center">
+                        <i class="fa-brands fa-git-alt mx-auto mb-4 h-9 w-9 text-4xl text-orange-600"></i>
+                        <h4 class="font-bold text-slate-800">Git</h4>
+                        <p class="mt-1 text-xs text-slate-400">Version Control</p>
+                    </div>
+
+                    <div class="tech-card rounded-2xl border border-slate-200 p-6 text-center">
+                        <i class="fa-brands fa-github mx-auto mb-4 h-9 w-9 text-4xl text-slate-800"></i>
+                        <h4 class="font-bold text-slate-800">GitHub</h4>
+                        <p class="mt-1 text-xs text-slate-400">Code Hosting</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURED PROJECTS ================= -->
+
+    <section id="projects" class="bg-slate-50 px-5 py-24 lg:px-8 lg:py-32">
+
+        <div class="mx-auto max-w-7xl">
+
+            <div class="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+
+                <div>
+                    <p class="section-label mb-4 text-xs font-bold uppercase text-amber-500">
+                        My Recent Work
+                    </p>
+
+                    <h2 class="text-4xl font-extrabold text-slate-900 sm:text-5xl">
+                        Featured <span class="text-amber-500">Projects</span>
+                    </h2>
+
+                    <p class="mt-5 max-w-xl leading-8 text-slate-500">
+                        A selection of projects demonstrating my skills in website development and business-focused web solutions.
+                    </p>
+                </div>
+
+                <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 font-bold text-slate-800 transition hover:text-amber-500">
+                    View GitHub
+                    <i data-lucide="arrow-up-right" class="h-5 w-5"></i>
+                </a>
+
+            </div>
+
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+                <!-- Project 1 -->
+                <article class="project-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+
+                    <div class="group relative h-60 overflow-hidden">
+                        <img
+                            src="https://i.pinimg.com/736x/f0/27/c1/f027c19f65c5f05257a1ed0bb962c6a4.jpg"
+                            alt="E-commerce website"
+                            class="h-full w-full object-cover"
+                        >
+
+                        <div class="absolute inset-0 flex items-center justify-center bg-slate-900/70 opacity-0 transition group-hover:opacity-100">
+                            <a href="#contact" class="rounded-full bg-white px-6 py-3 text-sm font-bold text-slate-900">
+                                View Project
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="p-7">
+
+                        <span class="text-xs font-bold uppercase tracking-widest text-amber-500">E-Commerce</span>
+
+                        <h3 class="mt-3 text-xl font-bold text-slate-900">Online Shopping Platform</h3>
+
+                        <p class="mt-3 leading-7 text-slate-500">
+                            An online shopping platform with product browsing, shopping cart and order management features.
+                        </p>
+
+                        <div class="mt-6 flex flex-wrap gap-2">
+                            <span class="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold">Next.js</span>
+                            <span class="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold">Laravel</span>
+                            <span class="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold">MySQL</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+
+                    <div class="group relative h-60 overflow-hidden">
+                        <img
+                            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=85"
+                            alt="Business dashboard"
+                            class="h-full w-full object-cover"
+                        >
+
+                        <div class="absolute inset-0 flex items-center justify-center bg-slate-900/70 opacity-0 transition group-hover:opacity-100">
+                            <a href="#contact" class="rounded-full bg-white px-6 py-3 text-sm font-bold text-slate-900">
+                                View Project
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="p-7">
+
+                        <span class="text-xs font-bold uppercase tracking-widest text-amber-500">Business Application</span>
+
+                        <h3 class="mt-3 text-xl font-bold text-slate-900">Daily Income Management</h3>
+
+                        <p class="mt-3 leading-7 text-slate-500">
+                            A business record management concept designed to organize daily transactions and monitor income.
+                        </p>
+
+                        <div class="mt-6 flex flex-wrap gap-2">
+                            <span class="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold">PHP</span>
+                            <span class="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold">JavaScript</span>
+                            <span class="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold">MySQL</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <!-- Project 3 -->
+                <article class="project-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+
+                    <div class="group relative h-60 overflow-hidden">
+                        <img
+                            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=85"
+                            alt="Professional business website"
+                            class="h-full w-full object-cover"
+                        >
+
+                        <div class="absolute inset-0 flex items-center justify-center bg-slate-900/70 opacity-0 transition group-hover:opacity-100">
+                            <a href="https://arclinkprintingservices.netlify.app/" target="_blank" rel="noopener noreferrer" class="rounded-full bg-white px-6 py-3 text-sm font-bold text-slate-900">
+                                View Website
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="p-7">
+
+                        <span class="text-xs font-bold uppercase tracking-widest text-amber-500">Business Website</span>
+
+                        <h3 class="mt-3 text-xl font-bold text-slate-900">ARC Link Printing Services</h3>
+
+                        <p class="mt-3 leading-7 text-slate-500">
+                            A business website showcasing printing services, business information and customer inquiry options.
+                        </p>
+
+                        <div class="mt-6 flex flex-wrap gap-2">
+                            <span class="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold">HTML</span>
+                            <span class="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold">CSS</span>
+                            <span class="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold">JavaScript</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= TESTIMONIALS ================= -->
+
+    <section id="testimonials" class="bg-white px-5 py-24 lg:px-8 lg:py-32">
+
+        <div class="mx-auto max-w-7xl">
+
+            <div class="mx-auto mb-16 max-w-2xl text-center">
+
+                <p class="section-label mb-4 text-xs font-bold uppercase text-amber-500">
+                    Client Feedback
+                </p>
+
+                <h2 class="mb-5 text-4xl font-extrabold text-slate-900 sm:text-5xl">
+                    Testimonials
+                </h2>
+
+                <p class="leading-8 text-slate-500">
+                    Building trust through quality work, communication and reliable solutions.
+                </p>
+
+            </div>
+
+            <div class="grid gap-7 md:grid-cols-3">
+
+                <!-- Testimonial 1 -->
+                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-8">
+
+                    <div class="mb-6 flex gap-1 text-amber-400">
+                        <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                        <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                        <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                        <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                        <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                    </div>
+
+                    <i data-lucide="quote" class="mb-4 h-8 w-8 text-amber-400"></i>
+
+                    <p class="mb-8 leading-8 text-slate-600">
+                        "Excellent! They brought our vision to life perfectly. 
+                        The code is clean, the site is fast, and they were incredibly helpful throughout 
+                        the entire launch process. Will definitely hire again!"
+                    </p>
+
+                    <div class="flex items-center gap-4 border-t border-slate-200 pt-6">
+                        <img src="https://i.pravatar.cc/100?img=12" alt="Client portrait" class="h-12 w-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-slate-900">John</h4>
+                            <p class="text-xs text-slate-500">Business Owner</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-8">
+
+                    <div class="mb-6 flex gap-1 text-amber-400">
+                        <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                        <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                        <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                        <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                        <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                    </div>
+
+                    <i data-lucide="quote" class="mb-4 h-8 w-8 text-amber-400"></i>
+
+                    <p class="mb-8 leading-8 text-slate-600">
+                        "An absolute professional! Communication was seamless from start to finish. 
+                        They explained technical things in plain English, met every single deadline, a
+                        nd delivered a bug-free website ahead of schedule. I highly recommend 
+                        their web development services!"
+                    </p>
+
+                    <div class="flex items-center gap-4 border-t border-slate-200 pt-6">
+                        <img src="https://i.pravatar.cc/100?img=32" alt="Client portrait" class="h-12 w-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-slate-900">Kate</h4>
+                            <p class="text-xs text-slate-500">Entrepreneur</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-8">
+
+                    <div class="mb-6 flex gap-1 text-amber-400">
+                        <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                        <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                        <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                        <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                        <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                    </div>
+
+                    <i data-lucide="quote" class="mb-4 h-8 w-8 text-amber-400"></i>
+
+                    <p class="mb-8 leading-8 text-slate-600">
+                        "Working with Abner was an amazing experience. 
+                        They took our messy ideas and turned them into a sleek, high-performing website. 
+                        The site is incredibly fast, easy to navigate, and looks great on both mobile and desktop.
+                         Our users love it!"
+                    </p>
+
+                    <div class="flex items-center gap-4 border-t border-slate-200 pt-6">
+                        <img src="https://i.pravatar.cc/100?img=47" alt="Client portrait" class="h-12 w-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-slate-900">Liza Smith</h4>
+                            <p class="text-xs text-slate-500">Project Client</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ME ================= -->
+
+    <section id="contact" class="bg-slate-900 px-5 py-24 lg:px-8 lg:py-32">
+
+        <div class="mx-auto grid max-w-7xl gap-16 lg:grid-cols-2">
+
+            <!-- Contact Content -->
+            <div>
+
+                <p class="section-label mb-4 text-xs font-bold uppercase text-amber-400">
+                    Let's Connect
+                </p>
+
+                <h2 class="mb-7 text-4xl font-extrabold leading-tight text-white sm:text-5xl">
+                    Have a Project in <span class="text-amber-400">Mind?</span>
+                </h2>
+
+                <p class="mb-10 max-w-lg leading-8 text-slate-400">
+                    Whether you need a professional website, a custom web application or help improving your existing system, let's discuss how I can help your business.
+                </p>
+
+                <div class="space-y-7">
+
+                    <div class="flex items-center gap-5">
+                        <div class="rounded-xl bg-white/10 p-4 text-amber-400">
+                            <i data-lucide="mail" class="h-6 w-6"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-slate-400">Email Me</p>
+                            <a href="mailto:abner.olivarez@gmail.com" class="font-semibold text-white hover:text-amber-400">
+                                abner.olivarez@gmail.com
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-5">
+                        <div class="rounded-xl bg-white/10 p-4 text-amber-400">
+                            <i data-lucide="map-pin" class="h-6 w-6"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-slate-400">Location</p>
+                            <p class="font-semibold text-white">Philippines</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-5">
+                        <div class="rounded-xl bg-white/10 p-4 text-amber-400">
+                            <i data-lucide="clock" class="h-6 w-6"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-slate-400">Availability</p>
+                            <p class="font-semibold text-white">Open for Freelance Projects</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Contact Form -->
+            <div class="rounded-3xl bg-white p-7 shadow-2xl sm:p-10">
+
+                <h3 class="mb-2 text-2xl font-extrabold text-slate-900">
+                    Send Me a Message
+                </h3>
+
+                <p class="mb-8 text-sm leading-7 text-slate-500">
+                    Tell me about your project and let's find the right solution.
+                </p>
+
+                <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
+
+                    <!-- Replace with your Web3Forms access key -->
+                    <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+
+                    <input type="hidden" name="subject" value="New Portfolio Inquiry - Abner Olivarez">
+
+                    <div>
+                        <label for="name" class="mb-2 block text-sm font-bold text-slate-700">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your name"
+                            required
+                            class="w-full rounded-xl border border-slate-200 bg-slate-50 px-5 py-4 text-sm outline-none transition focus:border-amber-500 focus:ring-2 focus:ring-amber-100"
+                        >
+                    </div>
+
+                    <div>
+                        <label for="email" class="mb-2 block text-sm font-bold text-slate-700">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required
+                            class="w-full rounded-xl border border-slate-200 bg-slate-50 px-5 py-4 text-sm outline-none transition focus:border-amber-500 focus:ring-2 focus:ring-amber-100"
+                        >
+                    </div>
+
+                    <div>
+                        <label for="service" class="mb-2 block text-sm font-bold text-slate-700">
+                            Service Interested In
+                        </label>
+
+                        <select
+                            id="service"
+                            name="service"
+                            required
+                            class="w-full rounded-xl border border-slate-200 bg-slate-50 px-5 py-4 text-sm text-slate-600 outline-none transition focus:border-amber-500 focus:ring-2 focus:ring-amber-100"
+                        >
+                            <option value="">Select a Service</option>
+                            <option>Website Development</option>
+                            <option>Backend Development</option>
+                            <option>E-Commerce Solutions</option>
+                            <option>Web Applications</option>
+                            <option>Website Maintenance</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="message" class="mb-2 block text-sm font-bold text-slate-700">
+                            Project Details
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="5"
+                            placeholder="Tell me about your project..."
+                            required
+                            class="w-full resize-none rounded-xl border border-slate-200 bg-slate-50 px-5 py-4 text-sm outline-none transition focus:border-amber-500 focus:ring-2 focus:ring-amber-100"
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="flex w-full items-center justify-center gap-3 rounded-xl bg-amber-500 px-6 py-4 font-bold text-white transition hover:bg-amber-600 hover:shadow-lg hover:shadow-amber-500/20">
+                        Send Message
+                        <i data-lucide="send" class="h-5 w-5"></i>
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    
+<footer class="border-t border-white/10 bg-slate-950 px-5 py-12 text-white lg:px-8">
+
+    <div class="mx-auto max-w-7xl">
+
+        <!-- 3 Column Footer -->
+        <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+
+            <!-- Column 1: Brand -->
+            <div>
+                <a href="#home" class="text-3xl font-extrabold tracking-tight">
+                    AO<span class="text-amber-500">.</span>
+                </a>
+
+                <p class="mt-4 max-w-sm text-sm leading-7 text-slate-400">
+                    I'm Abner Olivarez, an aspiring web developer passionate
+                    about building modern, responsive, and user-friendly
+                    websites that bring ideas to life.
+                </p>
+
+                <p class="mt-5 text-sm font-semibold text-amber-500">
+                    Building digital work with clarity.
+                </p>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div>
+                <h3 class="mb-5 text-lg font-bold">
+                    Quick Links
+                </h3>
+
+                <ul class="space-y-3 text-sm text-slate-400">
+                    <li>
+                        <a href="#home" class="transition hover:text-amber-400">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#about" class="transition hover:text-amber-400">
+                            About Me
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#technology" class="transition hover:text-amber-400">
+                            My Skills
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#projects" class="transition hover:text-amber-400">
+                            Projects
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="transition hover:text-amber-400">
+                            Contact Me
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Contact & Socials -->
+            <div>
+                <h3 class="mb-5 text-lg font-bold">
+                    Get In Touch
+                </h3>
+
+                <p class="mb-4 text-sm leading-6 text-slate-400">
+                    Have a project in mind or looking for a web developer?
+                    Let's work together!
+                </p>
+
+                <a href="mailto:abner.olivarez@gmail.com"
+                   class="text-sm text-amber-500 transition hover:text-amber-400">
+                    abner.olivarez@gmail.com
+                </a>
+
+                <!-- Social Links -->
+                <div class="mt-6 flex items-center gap-4">
+
+                    <a href="https://github.com/" target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="GitHub"
+                       class="text-slate-400 transition hover:text-amber-400">
+                        <i class="fa-brands fa-github text-xl"></i>
+                    </a>
+
+                    <a href="https://linkedin.com/" target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="LinkedIn"
+                       class="text-slate-400 transition hover:text-amber-400">
+                        <i class="fa-brands fa-linkedin text-xl"></i>
+                    </a>
+
+                    <a href="https://facebook.com/" target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Facebook"
+                       class="text-slate-400 transition hover:text-amber-400">
+                        <i class="fa-brands fa-facebook text-xl"></i>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-center sm:flex-row sm:text-left">
+
+            <p class="text-sm text-slate-500">
+                © <span id="currentYear"></span> Abner Olivarez.
+                All rights reserved.
+            </p>
+
+            <a href="#home"
+               class="flex items-center gap-2 text-sm font-semibold text-slate-400 transition hover:text-amber-400">
+                Back to Top
+                <i data-lucide="arrow-up" class="h-4 w-4"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        
+        // ================= THEME INITIALIZATION =================
+
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        // Check saved theme or system preference
+        const savedTheme = localStorage.getItem('portfolio-theme');
+
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+
+        // Apply theme
+        html.classList.toggle('dark', initialTheme === 'dark');
+
+        // Update theme icon
+        function updateThemeIcon() {
+
+            const isDark = html.classList.contains('dark');
+
+            themeToggle.innerHTML = isDark
+                ? '<i data-lucide="sun" class="h-5 w-5 animate-pulse"></i>'
+                : '<i data-lucide="moon" class="h-5 w-5"></i>';
+
+            themeToggle.setAttribute(
+                'aria-label',
+                isDark ? 'Switch to light mode' : 'Switch to dark mode'
+            );
+
+            lucide.createIcons();
+        }
+
+        // Initial icon
+        updateThemeIcon();
+
+        // Toggle Theme
+        themeToggle.addEventListener('click', () => {
+
+            const isDark = html.classList.toggle('dark');
+
+            localStorage.setItem(
+                'portfolio-theme',
+                isDark ? 'dark' : 'light'
+            );
+
+            updateThemeIcon();
+
+        });
+
+
+        // ================= MOBILE NAVIGATION =================
+
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn.addEventListener('click', () => {
+
+            const isOpen = mobileMenu.classList.toggle('menu-open');
+
+            menuBtn.setAttribute('aria-expanded', isOpen);
+
+            menuBtn.innerHTML = isOpen
+                ? '<i data-lucide="x" class="h-6 w-6"></i>'
+                : '<i data-lucide="menu" class="h-6 w-6"></i>';
+
+            lucide.createIcons();
+
+        });
+
+        // Close menu after clicking a link
+        document.querySelectorAll('.mobile-link').forEach(link => {
+
+            link.addEventListener('click', () => {
+
+                mobileMenu.classList.remove('menu-open');
+
+                menuBtn.setAttribute('aria-expanded', 'false');
+
+                menuBtn.innerHTML =
+                    '<i data-lucide="menu" class="h-6 w-6"></i>';
+
+                lucide.createIcons();
+
+            });
+
+        });
+
+
+        // ================= COPYRIGHT YEAR =================
+
+        document.getElementById('currentYear').textContent =
+            new Date().getFullYear();
+
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+
+
+
+
+/* ================= DARK MODE ================= */
+
+html.dark body {
+    background-color: #0f172a;
+    color: #e2e8f0;
+}
+
+/* Main backgrounds */
+html.dark .bg-white {
+    background-color: #0f172a !important;
+}
+
+html.dark .bg-slate-50 {
+    background-color: #111c2e !important;
+}
+
+/* Text colors */
+html.dark .text-slate-900 {
+    color: #f8fafc !important;
+}
+
+html.dark .text-slate-800 {
+    color: #e2e8f0 !important;
+}
+
+html.dark .text-slate-700 {
+    color: #cbd5e1 !important;
+}
+
+html.dark .text-slate-600,
+html.dark .text-slate-500 {
+    color: #94a3b8 !important;
+}
+
+/* Borders */
+html.dark .border-slate-100,
+html.dark .border-slate-200 {
+    border-color: #334155 !important;
+}
+
+/* Navbar */
+html.dark header {
+    background-color: rgba(15, 23, 42, 0.95) !important;
+    border-color: #334155 !important;
+}
+
+html.dark #mobileMenu {
+    background-color: #0f172a !important;
+    border-color: #334155 !important;
+}
+
+/* Service and project cards */
+html.dark .service-card,
+html.dark .project-card {
+    background-color: #1e293b !important;
+    border-color: #334155 !important;
+}
+
+/* Technology cards */
+html.dark .tech-card {
+    background-color: #1e293b;
+    border-color: #334155 !important;
+}
+
+html.dark .tech-card:hover {
+    background-color: #334155;
+}
+
+/* Testimonial cards */
+html.dark #testimonials .rounded-2xl {
+    background-color: #1e293b;
+    border-color: #334155;
+}
+
+/* About section cards */
+html.dark #about .bg-slate-50 {
+    background-color: #1e293b !important;
+}
+
+/* Project technology badges */
+html.dark .project-card .bg-slate-100 {
+    background-color: #334155 !important;
+    color: #e2e8f0 !important;
+}
+
+/* Contact form */
+html.dark #contact form input,
+html.dark #contact form textarea,
+html.dark #contact form select {
+    background-color: #1e293b;
+    border-color: #475569;
+    color: #f8fafc;
+}
+
+html.dark #contact form input::placeholder,
+html.dark #contact form textarea::placeholder {
+    color: #94a3b8;
+}
+
+html.dark #contact form option {
+    background-color: #1e293b;
+    color: #f8fafc;
+}
+
+/* Mobile menu button */
+html.dark #menuBtn {
+    color: #f8fafc;
+}
+
+html.dark #menuBtn:hover {
+    background-color: #334155;
+}
+
+/* Theme toggle */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid #e2e8f0;
+    color: #334155;
+    transition: all .3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: #fef3c7;
+    color: #d97706;
+}
+
+html.dark .theme-toggle {
+    border-color: #475569;
+    color: #fbbf24;
+}
+
+html.dark .theme-toggle:hover {
+    background-color: #334155;
+}
+
+/* Smooth theme transition */
+body,
+header,
+section,
+footer,
+.service-card,
+.project-card,
+.tech-card,
+.theme-toggle {
+    transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+}
