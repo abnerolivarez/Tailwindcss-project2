@@ -14,7 +14,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig(({ mode }) => ({
   base: mode === 'github'
-    ? '/Tailwind-CSS-Project/'
+    ? '/Tailwindcss-project2/'
     : '/',
   plugins: [
     tailwindcss(),
